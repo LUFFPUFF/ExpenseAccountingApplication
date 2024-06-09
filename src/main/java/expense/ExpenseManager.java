@@ -50,7 +50,9 @@ public class ExpenseManager {
 
     public Map<String, Double> getCategoryWiseExpense(LocalDate startDate, LocalDate endDate) {
         Map<String, Double> categoryWiseExpense = expenses.stream()
-                .filter(expense -> expense.getExpenseDate().isAfter(startDate) && expense.getExpenseDate().isBefore(endDate))
+                .filter(expense -> expense
+                        .getExpenseDate().isAfter(startDate)
+                        && expense.getExpenseDate().isBefore(endDate))
                 .collect(Collectors.groupingBy(Expense::getCategory, Collectors.summingDouble(Expense::getAmount)));
 
         log.info("Статистика расходов по категориям за период с {} по {}: {}", startDate, endDate, categoryWiseExpense);
