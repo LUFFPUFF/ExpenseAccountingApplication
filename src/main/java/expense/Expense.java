@@ -1,27 +1,96 @@
 package expense;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import javafx.beans.property.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
-@AllArgsConstructor
-@Getter
-@Setter
+
 public class Expense {
     private String description;
     private double amount;
     private LocalDate expenseDate;
-    private String nameShop;
     private String category;
+    private String nameShop;
+
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE;
+
+    public Expense(String description, double amount, LocalDate expenseDate, String category, String nameShop) {
+        this.description = description;
+        this.amount = amount;
+        this.expenseDate = expenseDate;
+        this.category = category;
+        this.nameShop = nameShop;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public LocalDate getExpenseDate() {
+        return expenseDate;
+    }
+
+    public void setExpenseDate(LocalDate expenseDate) {
+        this.expenseDate = expenseDate;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getNameShop() {
+        return nameShop;
+    }
+
+    public void setNameShop(String nameShop) {
+        this.nameShop = nameShop;
+    }
+
+    public StringProperty descriptionProperty() {
+        return new SimpleStringProperty(description);
+    }
+
+    public DoubleProperty amountProperty() {
+        return new SimpleDoubleProperty(amount);
+    }
+
+    public ObjectProperty<LocalDate> expenseDateProperty() {
+        return new SimpleObjectProperty<>(expenseDate);
+    }
+
+    public StringProperty categoryProperty() {
+        return new SimpleStringProperty(category);
+    }
+
+    public StringProperty nameShopProperty() {
+        return new SimpleStringProperty(nameShop);
+    }
 
     @Override
     public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
-        return String.format(
-                "Expense:\nDescription: %s\nAmount: %.2f\nDate: %s\nCategory: %s\nName shop: %s\n",
-                description, amount, expenseDate.format(formatter), category, nameShop
-        );
+        return "Expense{" +
+                "description='" + description + '\'' +
+                ", amount=" + amount +
+                ", expenseDate=" + expenseDate.format(DATE_FORMATTER) +
+                ", category='" + category + '\'' +
+                ", nameShop='" + nameShop + '\'' +
+                '}';
     }
 }

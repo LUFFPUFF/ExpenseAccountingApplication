@@ -1,25 +1,29 @@
 package database;
 
+import database.manager.ExpenseCSVManager;
+import database.manager.ProductCSVManager;
+import expense.ExpenseManager;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import product.ProductManager;
 
-import java.sql.*;
+import java.io.IOException;
+import java.time.LocalDate;
 
 @Log4j2
-@AllArgsConstructor
 public class DatabaseManager {
-    private String url;
-    private String user;
-    private String password;
 
+    private final ExpenseCSVManager expenseCSVManager;
 
-    public Connection getConnection() throws SQLException {
-        try {
-            return DriverManager.getConnection(url, user, password);
-        } catch (SQLException e) {
-            log.error("Failed to connect to the database: {}", e.getMessage());
-            throw e;
-        }
+    public DatabaseManager(ExpenseManager expenseManager) {
+        this.expenseCSVManager = new ExpenseCSVManager(expenseManager);
     }
 
+    public void loadDatabase() throws IOException {
+        expenseCSVManager.loadExpenses();
+    }
+
+    public void saveDatabase() throws IOException {
+        expenseCSVManager.saveExpenses();
+    }
 }

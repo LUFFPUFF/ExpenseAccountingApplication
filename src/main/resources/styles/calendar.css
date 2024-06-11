@@ -1,0 +1,35 @@
+/* Кнопки дней месяца */
+.day-button {
+    -fx-background-color: #f0f0f0; /* Цвет фона кнопок */
+    -fx-border-color: #cccccc; /* Цвет рамки кнопок */
+    -fx-text-fill: #333333; /* Цвет текста кнопок */
+    -fx-font-family: "Segoe UI", Arial, sans-serif; /* Шрифт текста кнопок */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 0);
+}
+
+/* Дни недели */
+.day-label {
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", Arial, sans-serif; /* Шрифт текста кнопок */
+    -fx-background-color: #f0f0f0; /* Цвет фона дней недели */
+    -fx-text-fill: #666666; /* Цвет текста дней недели */
+    -fx-padding: 5px; /* Поля вокруг текста */
+}
+
+
+/* Навигационная панель */
+.navigation-bar {
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+    -fx-alignment: center;
+}
+
+/* Метка месяца */
+.month-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", Arial, sans-serif; /* Шрифт текста кнопок */
+}
