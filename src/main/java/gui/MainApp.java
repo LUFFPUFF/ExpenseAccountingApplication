@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import lombok.SneakyThrows;
+import product.ProductManager;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -21,6 +22,7 @@ public class MainApp extends Application {
     private Scene calendarScene;
     private Stage primaryStage;
     private ExpenseManager expenseManager;
+    private ProductManager productManager;
     private DatabaseManager databaseManager;
 
     @SneakyThrows
@@ -48,7 +50,7 @@ public class MainApp extends Application {
         calendarScene = new Scene(rootLayout, 800, 600);
         primaryStage.setScene(calendarScene);
 
-        calendarView = new CalendarView(); // Создаем календарь
+        calendarView = new CalendarView();
         rootLayout.setCenter(calendarView.getView());
 
         calendarView.setDateSelectedListener(this::showExpenseTable);
@@ -56,10 +58,9 @@ public class MainApp extends Application {
         primaryStage.show();
     }
 
-    // Метод для отображения таблицы расходов для выбранной даты
     private void showExpenseTable(LocalDate date) {
         ExpenseTableView expenseTableView = new ExpenseTableView(date, expenseManager, databaseManager);
-        expenseTableView.show(); // Отображаем таблицу расходов
+        expenseTableView.show();
     }
 
     public static void main(String[] args) {

@@ -96,21 +96,13 @@ public class ExpenseTableView {
     }
 
     public void loadDataFromDatabase(LocalDate date) {
-        if (!isDataLoaded) {
-            try {
-                log.info("Loading data from database.");
-                databaseManager.loadDatabase(); // Загружаем данные из базы данных
-                List<Expense> expenses = expenseManager.getExpensesByDate(date);
-                log.info("Loaded {} expenses for date {}.", expenses.size(), date);
-                expenseList.addAll(expenses);
-                isDataLoaded = true;
-                log.info("Data has been loaded successfully.");
-            } catch (IOException e) {
-                log.error("Error loading data from database: {}", e.getMessage(), e);
-                showErrorAlert("Ошибка загрузки данных из базы данных", e.getMessage());
-            }
-        } else {
-            log.info("Data is already loaded, skipping.");
+        try {
+            databaseManager.loadDatabase();
+            List<Expense> expenses = expenseManager.getExpensesByDate(date);
+            expenseList.setAll(expenses);
+        } catch (IOException e) {
+            log.error("Error loading data from database: {}", e.getMessage(), e);
+            showErrorAlert("Ошибка загрузки данных из базы данных", e.getMessage());
         }
     }
 
@@ -207,7 +199,6 @@ public class ExpenseTableView {
         dialog.showAndWait();
     }
 
-    // Метод для отображения сообщения об ошибке
     private void showErrorAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);

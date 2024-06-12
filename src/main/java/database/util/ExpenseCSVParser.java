@@ -20,7 +20,6 @@ public class ExpenseCSVParser {
 
         for (String[] line : csvData) {
             if (line.length < 5) {
-                // Пропускаем строки, которые содержат меньше 5 элементов
                 continue;
             }
             String description = line[0];
@@ -28,14 +27,12 @@ public class ExpenseCSVParser {
             try {
                 amount = Double.parseDouble(line[1]);
             } catch (NumberFormatException e) {
-                // В случае ошибки парсинга суммы, пропускаем эту строку
                 continue;
             }
             LocalDate date;
             try {
                 date = LocalDate.parse(line[2]);
             } catch (DateTimeParseException e) {
-                // В случае ошибки парсинга даты, пропускаем эту строку
                 continue;
             }
             String nameShop = line[3];
@@ -56,7 +53,7 @@ public class ExpenseCSVParser {
                 String[] line = {
                         expense.getDescription(),
                         String.valueOf(expense.getAmount()),
-                        expense.getExpenseDate().toString(), // Convert date to string
+                        expense.getExpenseDate().toString(),
                         expense.getNameShop(),
                         expense.getCategory()
                 };

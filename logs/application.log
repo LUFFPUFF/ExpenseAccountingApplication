@@ -76,3 +76,212 @@ java.nio.file.NoSuchFileException: files\products.csv
 [23:21:00.124] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 3 expenses for date 2024-06-01
 [23:21:00.124] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loaded 3 expenses for date 2024-06-01.
 [23:21:00.124] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Data has been loaded successfully.
+[12:10:29.798] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:10:29.821] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 4 expenses from CSV file.
+[12:10:29.821] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:10:46.108] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loading data from database.
+[12:10:46.108] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:10:46.108] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 4 expenses from CSV file.
+[12:10:46.108] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:10:46.109] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 6 expenses for date 2024-06-01
+[12:10:46.109] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loaded 6 expenses for date 2024-06-01.
+[12:10:46.109] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Data has been loaded successfully.
+[12:10:54.962] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loading data from database.
+[12:10:54.962] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:10:54.962] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 4 expenses from CSV file.
+[12:10:54.963] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:10:54.963] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 0 expenses for date 2024-06-12
+[12:10:54.963] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loaded 0 expenses for date 2024-06-12.
+[12:10:54.963] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Data has been loaded successfully.
+[12:11:14.207] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:11:14.228] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 13 expenses from CSV file.
+[12:11:14.228] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:11:16.342] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loading data from database.
+[12:11:16.342] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:11:16.343] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 13 expenses from CSV file.
+[12:11:16.343] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:11:16.344] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 18 expenses for date 2024-06-01
+[12:11:16.344] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loaded 18 expenses for date 2024-06-01.
+[12:11:16.344] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Data has been loaded successfully.
+[12:11:25.094] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loading data from database.
+[12:11:25.094] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:11:25.095] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 13 expenses from CSV file.
+[12:11:25.096] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:11:25.096] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 3 expenses for date 2024-06-12
+[12:11:25.096] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loaded 3 expenses for date 2024-06-12.
+[12:11:25.096] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Data has been loaded successfully.
+[12:11:37.680] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:11:37.699] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:11:37.699] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:11:41.532] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loading data from database.
+[12:11:41.532] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:11:41.533] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:11:41.533] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:11:41.533] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 2 expenses for date 2024-06-11
+[12:11:41.534] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loaded 2 expenses for date 2024-06-11.
+[12:11:41.534] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Data has been loaded successfully.
+[12:11:44.383] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loading data from database.
+[12:11:44.383] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:11:44.384] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:11:44.384] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:11:44.384] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 3 expenses for date 2024-06-12
+[12:11:44.384] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loaded 3 expenses for date 2024-06-12.
+[12:11:44.384] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Data has been loaded successfully.
+[12:11:46.442] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loading data from database.
+[12:11:46.442] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:11:46.443] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:11:46.443] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:11:46.443] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 4 expenses for date 2024-06-11
+[12:11:46.443] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loaded 4 expenses for date 2024-06-11.
+[12:11:46.443] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Data has been loaded successfully.
+[12:12:56.700] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:12:56.721] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:12:56.721] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:12:59.179] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loading data from database.
+[12:12:59.179] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:12:59.179] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:12:59.179] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:12:59.180] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 2 expenses for date 2024-06-11
+[12:12:59.180] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loaded 2 expenses for date 2024-06-11.
+[12:12:59.180] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Data has been loaded successfully.
+[12:25:07.878] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:25:07.898] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:25:07.898] [JavaFX Application Thread] INFO  expense.ExpenseManager - Added 2 new expenses, 2 total expenses now.
+[12:25:07.898] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:25:10.117] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:25:10.118] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:25:10.118] [JavaFX Application Thread] INFO  expense.ExpenseManager - Added 2 new expenses, 4 total expenses now.
+[12:25:10.118] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:25:10.119] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 2 expenses for date 2024-06-11
+[12:25:12.720] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:25:12.721] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:25:12.721] [JavaFX Application Thread] INFO  expense.ExpenseManager - Added 2 new expenses, 6 total expenses now.
+[12:25:12.721] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:25:12.721] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 3 expenses for date 2024-06-11
+[12:25:27.598] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:25:27.617] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:25:27.618] [JavaFX Application Thread] INFO  expense.ExpenseManager - Added 2 new expenses, 2 total expenses now.
+[12:25:27.618] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:25:29.570] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:25:29.571] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:25:29.571] [JavaFX Application Thread] INFO  expense.ExpenseManager - Added 2 new expenses, 4 total expenses now.
+[12:25:29.571] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:25:29.572] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 2 expenses for date 2024-06-12
+[12:25:34.562] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:25:34.563] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:25:34.563] [JavaFX Application Thread] INFO  expense.ExpenseManager - Added 2 new expenses, 6 total expenses now.
+[12:25:34.563] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:25:34.563] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 3 expenses for date 2024-06-12
+[12:25:37.034] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:25:37.035] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:25:37.035] [JavaFX Application Thread] INFO  expense.ExpenseManager - Added 2 new expenses, 8 total expenses now.
+[12:25:37.035] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:25:37.035] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 4 expenses for date 2024-06-12
+[12:27:53.877] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:27:53.902] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:27:53.902] [JavaFX Application Thread] INFO  expense.ExpenseManager - Added 2 new expenses, 2 total expenses now.
+[12:27:53.902] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:27:55.827] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:27:55.828] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:27:55.828] [JavaFX Application Thread] INFO  expense.ExpenseManager - Added 2 new expenses, 4 total expenses now.
+[12:27:55.828] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:27:55.829] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 2 expenses for date 2024-06-11
+[12:27:58.804] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:27:58.805] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:27:58.805] [JavaFX Application Thread] INFO  expense.ExpenseManager - Added 2 new expenses, 6 total expenses now.
+[12:27:58.805] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:27:58.805] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 3 expenses for date 2024-06-11
+[12:28:02.381] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:28:02.382] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:28:02.382] [JavaFX Application Thread] INFO  expense.ExpenseManager - Added 2 new expenses, 8 total expenses now.
+[12:28:02.382] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:28:02.382] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 4 expenses for date 2024-06-12
+[12:28:05.931] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:28:05.932] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:28:05.932] [JavaFX Application Thread] INFO  expense.ExpenseManager - Added 2 new expenses, 10 total expenses now.
+[12:28:05.932] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:28:05.932] [JavaFX Application Thread] INFO  expense.ExpenseManager - Found 5 expenses for date 2024-06-12
+[12:30:49.429] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:30:49.447] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:31:20.198] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:31:20.214] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:31:20.215] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:31:22.742] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:31:22.742] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:31:22.742] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:31:22.743] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loaded 1 expenses for date 2024-06-11.
+[12:31:25.960] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:31:25.960] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:31:25.961] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:31:25.961] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loaded 1 expenses for date 2024-06-11.
+[12:31:28.866] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:31:28.867] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:31:28.867] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:31:28.867] [JavaFX Application Thread] INFO  gui.view.expense.ExpenseTableView - Loaded 1 expenses for date 2024-06-12.
+[12:31:47.913] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:31:47.929] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:31:47.929] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:31:51.204] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:31:51.205] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:31:51.205] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:31:54.118] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:31:54.118] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:31:54.119] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:32:00.545] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:32:00.546] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:32:00.546] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:32:09.944] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:32:09.945] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:32:09.945] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:32:21.086] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:32:21.105] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 1 expenses from CSV file.
+[12:32:21.105] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:32:22.665] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:32:22.666] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 1 expenses from CSV file.
+[12:32:22.666] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:32:27.216] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:32:27.217] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 1 expenses from CSV file.
+[12:32:27.217] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:32:46.729] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:32:46.748] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:32:46.748] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:32:48.768] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:32:48.769] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:32:48.769] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:32:57.937] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:32:57.953] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:32:57.953] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[12:32:59.627] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[12:32:59.628] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[12:32:59.628] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[18:34:28.844] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[18:34:28.887] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[18:34:28.887] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[18:34:32.927] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[18:34:32.927] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[18:34:32.927] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[18:34:36.752] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[18:34:36.752] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[18:34:36.753] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[18:35:53.282] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[18:35:53.304] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 3 expenses from CSV file.
+[18:35:53.304] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[18:35:55.393] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[18:35:55.394] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 3 expenses from CSV file.
+[18:35:55.394] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[18:36:51.148] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[18:36:51.165] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 3 expenses from CSV file.
+[18:36:51.165] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[18:36:52.927] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[18:36:52.928] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 3 expenses from CSV file.
+[18:36:52.928] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[18:37:12.899] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[18:37:12.905] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[18:37:12.906] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[18:41:45.524] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[18:41:45.540] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[18:41:45.540] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[18:41:47.689] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Starting to load expenses from CSV file.
+[18:41:47.690] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Loaded 2 expenses from CSV file.
+[18:41:47.690] [JavaFX Application Thread] INFO  database.manager.ExpenseCSVManager - Expenses have been added to the expense manager.
+[18:42:00.989] [JavaFX Application Thread] INFO  product.ProductManager - Product added: Product{name='Сыр', price=200.0, category='ывпаывп'}

@@ -8,7 +8,9 @@ import lombok.extern.log4j.Log4j2;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Log4j2
 public class ExpenseCSVManager {
@@ -24,13 +26,14 @@ public class ExpenseCSVManager {
     public void loadExpenses() throws IOException {
         log.info("Starting to load expenses from CSV file.");
         List<Expense> expenses = ExpenseCSVParser.parseCSV(FILE_PATH);
+        Set<Expense> set = new HashSet<>(expenses);
         log.info("Loaded {} expenses from CSV file.", expenses.size());
-        expenseManager.getExpenses().addAll(expenses);
+        expenseManager.setExpenses(set);
         log.info("Expenses have been added to the expense manager.");
     }
 
     public void saveExpenses() throws IOException {
-        List<Expense> expenses = expenseManager.getExpenses();
+        List<Expense> expenses = new ArrayList<>(expenseManager.getExpenses());
         ExpenseCSVParser.writeCSV(FILE_PATH, expenses);
     }
 }
