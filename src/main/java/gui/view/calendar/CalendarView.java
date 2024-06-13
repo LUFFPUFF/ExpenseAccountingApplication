@@ -1,5 +1,7 @@
 package gui.view.calendar;
 
+import expense.Expense;
+import expense.ExpenseManager;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -11,6 +13,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class CalendarView {
@@ -18,10 +21,12 @@ public class CalendarView {
     @Getter
     private BorderPane view;
     private YearMonth currentYearMonth;
+    private ExpenseManager expenseManager;
     @Setter
     private Consumer<LocalDate> dateSelectedListener;
 
-    public CalendarView() {
+    public CalendarView(ExpenseManager expenseManager) {
+        this.expenseManager = expenseManager;
         this.view = new BorderPane();
         this.currentYearMonth = YearMonth.now();
 
@@ -50,7 +55,22 @@ public class CalendarView {
             int row = (day + dayOfWeekValue - 2) / 7 + 1;
             int col = (day + dayOfWeekValue - 2) % 7;
 
+            LocalDate currentDate = currentYearMonth.atDay(day);
             Button dayButton = new Button(String.valueOf(day));
+            dayButton.setStyle("-fx-background-color: white;");
+
+            List<Expense> dailyExpenses = expenseManager.getExpensesByDate(currentDate);
+            if (!dailyExpenses.isEmpty()) {
+                double totalExpense = dailyExpenses.stream().mapToDouble(Expense::getAmount).sum();
+                if (totalExpense > 5000) {
+                    dayButton.setStyle("-fx-background-color: red;");
+                } else if (totalExpense >= 2000 && totalExpense <= 3000) {
+                    dayButton.setStyle("-fx-background-color: yellow;");
+                } else {
+                    dayButton.setStyle("-fx-background-color: green;");
+                }
+            }
+
             int finalDay = day;
             dayButton.setOnAction(event -> {
                 LocalDate selectedDate = currentYearMonth.atDay(finalDay);

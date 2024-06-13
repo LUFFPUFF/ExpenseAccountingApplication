@@ -1,14 +1,10 @@
 package database;
 
 import database.manager.ExpenseCSVManager;
-import database.manager.ProductCSVManager;
 import expense.ExpenseManager;
-import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import product.ProductManager;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
 @Log4j2
 public class DatabaseManager {

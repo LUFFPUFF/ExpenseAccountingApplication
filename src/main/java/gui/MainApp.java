@@ -11,7 +11,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import lombok.SneakyThrows;
-import product.ProductManager;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -22,7 +21,6 @@ public class MainApp extends Application {
     private Scene calendarScene;
     private Stage primaryStage;
     private ExpenseManager expenseManager;
-    private ProductManager productManager;
     private DatabaseManager databaseManager;
 
     @SneakyThrows
@@ -32,7 +30,7 @@ public class MainApp extends Application {
         this.primaryStage.setTitle("Календарь");
 
         expenseManager = new ExpenseManager(); // Создаем менеджер расходов
-        databaseManager = new DatabaseManager(expenseManager); // Создаем менеджер базы данных
+        databaseManager = new DatabaseManager(expenseManager);
 
         // Загружаем данные из базы данных
         try {
@@ -50,7 +48,7 @@ public class MainApp extends Application {
         calendarScene = new Scene(rootLayout, 800, 600);
         primaryStage.setScene(calendarScene);
 
-        calendarView = new CalendarView();
+        calendarView = new CalendarView(expenseManager);
         rootLayout.setCenter(calendarView.getView());
 
         calendarView.setDateSelectedListener(this::showExpenseTable);
