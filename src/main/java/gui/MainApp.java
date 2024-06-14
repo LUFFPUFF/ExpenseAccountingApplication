@@ -17,38 +17,28 @@ import java.time.LocalDate;
 
 public class MainApp extends Application {
 
-    private CalendarView calendarView;
-    private Scene calendarScene;
-    private Stage primaryStage;
     private ExpenseManager expenseManager;
     private DatabaseManager databaseManager;
 
     @SneakyThrows
     @Override
     public void start(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Календарь");
+        primaryStage.setTitle("Календарь");
 
         expenseManager = new ExpenseManager(); // Создаем менеджер расходов
         databaseManager = new DatabaseManager(expenseManager);
 
-        // Загружаем данные из базы данных
         try {
             databaseManager.loadDatabase();
         } catch (IOException e) {
-            // В случае ошибки загрузки данных
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Ошибка");
-            alert.setHeaderText("Ошибка загрузки данных");
-            alert.setContentText("Не удалось загрузить данные из базы данных. " + e.getMessage());
-            alert.showAndWait();
+            showAlert();
         }
 
         BorderPane rootLayout = new BorderPane();
-        calendarScene = new Scene(rootLayout, 800, 600);
+        Scene calendarScene = new Scene(rootLayout, 800, 600);
         primaryStage.setScene(calendarScene);
 
-        calendarView = new CalendarView(expenseManager);
+        CalendarView calendarView = new CalendarView(expenseManager);
         rootLayout.setCenter(calendarView.getView());
 
         calendarView.setDateSelectedListener(this::showExpenseTable);
@@ -59,6 +49,14 @@ public class MainApp extends Application {
     private void showExpenseTable(LocalDate date) {
         ExpenseTableView expenseTableView = new ExpenseTableView(date, expenseManager, databaseManager);
         expenseTableView.show();
+    }
+
+    public static void showAlert() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Ошибка");
+        alert.setHeaderText("Ошибка загрузки данных");
+        alert.setContentText("Не удалось загрузить данные из базы данных. ");
+        alert.showAndWait();
     }
 
     public static void main(String[] args) {

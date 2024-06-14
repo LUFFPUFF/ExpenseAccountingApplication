@@ -3,48 +3,75 @@ package gui.view.expense;
 import database.DatabaseManager;
 import expense.Expense;
 import expense.ExpenseManager;
-import javafx.collections.ListChangeListener;
+import gui.dialog.ExpenseDialog;
+import gui.itemgui.ExpenseAnimation;
+import gui.itemgui.ExpenseStatistics;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import lombok.extern.log4j.Log4j2;
+import logger.MyLogger;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.List;
 
-@Log4j2
 public class ExpenseTableView {
 
-    private TableView<Expense> tableView;
-    private ObservableList<Expense> expenseList;
-    private Stage stage;
-    private ExpenseManager expenseManager;
-    private DatabaseManager databaseManager;
-    private boolean isDataLoaded = false; // Флаг для отслеживания загрузки данных
+    private final TableView<Expense> tableView;
+    private final ObservableList<Expense> expenseList;
+    private final Stage stage;
+    private final ExpenseManager expenseManager;
+    private final DatabaseManager databaseManager;
+
+    private static final String ERROR_LOADING = "Ошибка загрузки данных из базы данных";
+    private static final String ERROR_SAVE = "Не удалось сохранить данные в базу данных";
 
     public ExpenseTableView(LocalDate date, ExpenseManager expenseManager, DatabaseManager databaseManager) {
         this.expenseManager = expenseManager;
         this.databaseManager = databaseManager;
-        initializeTableView();
+        this.tableView = new TableView<>();
+        this.expenseList = FXCollections.observableArrayList();
+        this.stage = new Stage();
+
+        initializeTableView(date);
         loadDataFromDatabase(date);
     }
 
-    private void initializeTableView() {
-        stage = new Stage();
+    private void initializeTableView(LocalDate date) {
         stage.setTitle("Таблица расходов");
 
-        tableView = new TableView<>();
-        expenseList = FXCollections.observableArrayList();
-        tableView.setItems(expenseList);
+        setupTableColumns();
+        FilteredList<Expense> filteredData = new FilteredList<>(expenseList, _ -> true);
+        tableView.setItems(filteredData);
 
+        tableView.setRowFactory(_ -> {
+            TableRow<Expense> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2 && !row.isEmpty()) {
+                    Expense rowData = row.getItem();
+                    new ExpenseDialog(expenseManager, databaseManager, expenseList).showEditExpenseDialog(rowData);
+                    tableView.refresh();
+                }
+            });
+            return row;
+        });
+
+        VBox root = new VBox(10, createFilterField(filteredData), createButtonBox(date), tableView);
+        root.setAlignment(Pos.TOP_CENTER);
+
+        setupAnimations();
+
+        stage.setScene(new Scene(root, 800, 600));
+    }
+
+    private void setupTableColumns() {
         TableColumn<Expense, String> descriptionColumn = new TableColumn<>("Описание");
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
 
@@ -61,98 +88,63 @@ public class ExpenseTableView {
         nameShopColumn.setCellValueFactory(new PropertyValueFactory<>("nameShop"));
 
         tableView.getColumns().addAll(descriptionColumn, amountColumn, dateColumn, categoryColumn, nameShopColumn);
+    }
 
-        VBox root = new VBox(tableView);
+    private TextField createFilterField(FilteredList<Expense> filteredData) {
+        TextField filterField = new TextField();
+        filterField.setPromptText("Поиск...");
+        filterField.textProperty().addListener((_, _, newValue) -> {
+            filteredData.setPredicate(expense -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                return expense.getDescription().toLowerCase().contains(lowerCaseFilter) ||
+                        expense.getCategory().toLowerCase().contains(lowerCaseFilter) ||
+                        expense.getNameShop().toLowerCase().contains(lowerCaseFilter);
+            });
+        });
+        return filterField;
+    }
 
+    private HBox createButtonBox(LocalDate date) {
         Button addButton = new Button("Добавить");
-        addButton.setOnAction(event -> showAddExpenseDialog());
+        addButton.setOnAction(_ -> new ExpenseDialog(expenseManager, databaseManager, expenseList).showAddExpenseDialog());
+
         Button removeButton = new Button("Удалить");
-        removeButton.setOnAction(event -> removeSelectedExpense());
+        removeButton.setOnAction(_ -> removeSelectedExpense());
 
         Button totalButton = new Button("Общие расходы");
-        totalButton.setOnAction(event -> showTotalExpenses());
+        totalButton.setOnAction(_ -> new ExpenseStatistics(expenseManager).showTotalExpenses(date));
 
-        HBox buttonBox = new HBox(addButton, removeButton, totalButton);
-        buttonBox.setSpacing(10);
+        Button pieChartButton = new Button("Диаграмма по категориям");
+        pieChartButton.setOnAction(_ -> new ExpenseStatistics(expenseList).showPieChart());
+
+        HBox buttonBox = new HBox(10, addButton, removeButton, totalButton, pieChartButton);
         buttonBox.setAlignment(Pos.CENTER);
+        return buttonBox;
+    }
 
-        root.getChildren().addAll(buttonBox);
-
-        tableView.setRowFactory(tv -> {
-            TableRow<Expense> row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && !row.isEmpty()) {
-                    Expense selectedExpense = row.getItem();
-                    if (selectedExpense != null) {
-                        showExpenseInfoDialog(selectedExpense);
-                    }
-                }
-            });
-            return row;
-        });
-
-        Scene scene = new Scene(root, 800, 600);
-        stage.setScene(scene);
+    private void setupAnimations() {
+        ExpenseAnimation.playFadeInAnimation(tableView);
+        ExpenseAnimation.playTranslateAnimation(new Button("Добавить"), -200, 0);
+        ExpenseAnimation.playTranslateAnimation(new Button("Удалить"), -200, 0);
+        ExpenseAnimation.playTranslateAnimation(new Button("Общие расходы"), 200, 0);
+        ExpenseAnimation.playTranslateAnimation(new Button("Диаграмма по категориям"), 200, 0);
     }
 
     public void loadDataFromDatabase(LocalDate date) {
         try {
             databaseManager.loadDatabase();
-            List<Expense> expenses = expenseManager.getExpensesByDate(date);
-            expenseList.setAll(expenses);
+            expenseList.setAll(expenseManager.getExpensesByDate(date));
         } catch (IOException e) {
-            log.error("Error loading data from database: {}", e.getMessage(), e);
-            showErrorAlert("Ошибка загрузки данных из базы данных", e.getMessage());
+            MyLogger.error("Error loading data from database: {}" + e.getMessage());
+            showErrorAlert(ERROR_LOADING, e.getMessage());
         }
     }
 
     public void show() {
         stage.show();
-    }
-
-    private void showAddExpenseDialog() {
-        Dialog<Expense> dialog = new Dialog<>();
-        dialog.setTitle("Добавить расход");
-        dialog.setHeaderText("Введите информацию о расходе:");
-
-        TextField descriptionField = new TextField();
-        TextField amountField = new TextField();
-        TextField categoryField = new TextField();
-        TextField nameShopField = new TextField();
-
-        dialog.getDialogPane().setContent(new VBox(8,
-                new Label("Описание:"), descriptionField,
-                new Label("Сумма:"), amountField,
-                new Label("Категория:"), categoryField,
-                new Label("Магазин:"), nameShopField
-        ));
-
-        ButtonType addButton = new ButtonType("Добавить", ButtonBar.ButtonData.OK_DONE);
-        dialog.getDialogPane().getButtonTypes().addAll(addButton, ButtonType.CANCEL);
-
-        dialog.setResultConverter(dialogButton -> {
-            if (dialogButton == addButton) {
-                try {
-                    String description = descriptionField.getText();
-                    double amount = Double.parseDouble(amountField.getText());
-                    String category = categoryField.getText();
-                    String nameShop = nameShopField.getText();
-                    Expense expense = new Expense(description, amount, LocalDate.now(), category, nameShop);
-                    expenseManager.addExpense(expense);
-                    databaseManager.saveDatabase();
-                    return expense;
-                } catch (NumberFormatException e) {
-                    showErrorAlert("Ошибка", "Пожалуйста, введите корректные данные для суммы.");
-                    return null;
-                } catch (IOException e) {
-                    showErrorAlert("Ошибка", "Не удалось сохранить данные в базу данных. " + e.getMessage());
-                    return null;
-                }
-            }
-            return null;
-        });
-
-        dialog.showAndWait().ifPresent(expenseList::add);
     }
 
     private void removeSelectedExpense() {
@@ -163,40 +155,10 @@ public class ExpenseTableView {
             try {
                 databaseManager.saveDatabase();
             } catch (IOException e) {
-                showErrorAlert("Ошибка", "Не удалось сохранить данные в базу данных. " + e.getMessage());
+                MyLogger.error("Error save is database");
+                showErrorAlert("Ошибка", ERROR_SAVE + e.getMessage());
             }
         }
-    }
-
-    private void showTotalExpenses() {
-        double totalExpenses = expenseManager.getTotalExpenses();
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Общие расходы");
-        alert.setHeaderText(null);
-        alert.setContentText("Общие расходы: " + totalExpenses);
-        alert.showAndWait();
-    }
-
-    private void showExpenseInfoDialog(Expense expense) {
-        Dialog<Void> dialog = new Dialog<>();
-        dialog.setTitle("Информация о расходе");
-        dialog.setHeaderText("Детали расхода:");
-
-        Label descriptionLabel = new Label("Описание: " + expense.getDescription());
-        Label amountLabel = new Label("Сумма: " + expense.getAmount());
-        Label dateLabel = new Label("Дата: " + expense.getExpenseDate());
-        Label categoryLabel = new Label("Категория: " + expense.getCategory());
-        Label nameShopLabel = new Label("Магазин: " + expense.getNameShop());
-
-        VBox content = new VBox(10);
-        content.getChildren().addAll(descriptionLabel, amountLabel, dateLabel, categoryLabel, nameShopLabel);
-        dialog.getDialogPane().setContent(content);
-
-        ButtonType closeButton = new ButtonType("Закрыть", ButtonBar.ButtonData.OK_DONE);
-        dialog.getDialogPane().getButtonTypes().addAll(closeButton);
-
-        dialog.setResultConverter(dialogButton -> null);
-        dialog.showAndWait();
     }
 
     private void showErrorAlert(String title, String message) {
@@ -207,3 +169,4 @@ public class ExpenseTableView {
         alert.showAndWait();
     }
 }
+

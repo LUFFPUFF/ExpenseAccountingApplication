@@ -4,6 +4,7 @@ import database.manager.ExpenseCSVManager;
 import expense.ExpenseManager;
 import lombok.extern.log4j.Log4j2;
 
+import java.awt.*;
 import java.io.IOException;
 
 @Log4j2

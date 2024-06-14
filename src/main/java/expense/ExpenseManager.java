@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 
 import java.time.LocalDate;
+import java.time.YearMonth;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -37,7 +38,7 @@ public class ExpenseManager {
 
     public List<Expense> getExpensesInDateRange(LocalDate startDate, LocalDate endDate) {
         return expenses.stream()
-                .filter(expense -> expense.getExpenseDate().isAfter(startDate) && expense.getExpenseDate().isBefore(endDate))
+                .filter(expense -> !expense.getExpenseDate().isBefore(startDate) && !expense.getExpenseDate().isAfter(endDate))
                 .collect(Collectors.toList());
     }
 
@@ -47,7 +48,44 @@ public class ExpenseManager {
                 .collect(Collectors.toList());
     }
 
+    public void updateExpense(Expense expense) {
+        expenses.remove(expense);
+    }
+
     public double getTotalExpenses() {
         return expenses.stream().mapToDouble(Expense::getAmount).sum();
+    }
+
+    public List<Expense> filterExpenses(String category, Double minAmount, Double maxAmount, LocalDate startDate, LocalDate endDate) {
+        return expenses.stream()
+                .filter(expense -> (category == null || expense.getCategory().equalsIgnoreCase(category)) &&
+                        (minAmount == null || expense.getAmount() >= minAmount) &&
+                        (maxAmount == null || expense.getAmount() <= maxAmount) &&
+                        (startDate == null || !expense.getExpenseDate().isBefore(startDate)) &&
+                        (endDate == null || !expense.getExpenseDate().isAfter(endDate)))
+                .collect(Collectors.toList());
+    }
+
+    public List<Expense> sortExpensesByAmount(List<Expense> expenses, boolean ascending) {
+        return expenses.stream()
+                .sorted(Comparator.comparingDouble(Expense::getAmount).reversed())
+                .collect(Collectors.toList());
+    }
+
+    public List<Expense> sortExpensesByDate(List<Expense> expenses, boolean ascending) {
+        return expenses.stream()
+                .sorted(Comparator.comparing(Expense::getExpenseDate).reversed())
+                .collect(Collectors.toList());
+    }
+
+    public List<Expense> getExpensesInMonth(YearMonth yearMonth) {
+        return expenses.stream()
+                .filter(expense -> YearMonth.from(expense.getExpenseDate()).equals(yearMonth))
+                .collect(Collectors.toList());
+    }
+
+    public double getTotalExpensesInDateRange(LocalDate startDate, LocalDate endDate) {
+        return getExpensesInDateRange(startDate, endDate).stream()
+                .mapToDouble(Expense::getAmount).sum();
     }
 }

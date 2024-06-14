@@ -1,35 +1,56 @@
-/* Кнопки дней месяца */
-.day-button {
-    -fx-background-color: #f0f0f0; /* Цвет фона кнопок */
-    -fx-border-color: #cccccc; /* Цвет рамки кнопок */
-    -fx-text-fill: #333333; /* Цвет текста кнопок */
-    -fx-font-family: "Segoe UI", Arial, sans-serif; /* Шрифт текста кнопок */
+/* styles.css */
+
+/* Background color for the entire view */
+.root {
+    -fx-background-color: #f0f0f0;
+}
+
+/* Styles for navigation buttons */
+.button-nav {
+    -fx-background-color: #c0c0c0;
+    -fx-text-fill: white;
+}
+
+/* Style for month label */
+.label-month {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* Style for day buttons */
+.button-day {
+    -fx-background-color: white;
+    -fx-pref-width: 40px;
+    -fx-pref-height: 40px;
     -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-padding: 5px;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 0);
 }
 
-/* Дни недели */
-.day-label {
-    -fx-font-weight: bold;
-    -fx-font-family: "Segoe UI", Arial, sans-serif; /* Шрифт текста кнопок */
-    -fx-background-color: #f0f0f0; /* Цвет фона дней недели */
-    -fx-text-fill: #666666; /* Цвет текста дней недели */
-    -fx-padding: 5px; /* Поля вокруг текста */
+/* Highlight today's date */
+.button-day-today {
+    -fx-background-color: lightblue;
+    -fx-pref-width: 40px;
+    -fx-pref-height: 40px;
+    -fx-font-size: 14px;
 }
 
+/* Style for notes text area */
+.text-area-notes {
+    -fx-pref-width: 200px;
+    -fx-pref-height: 100px;
+}
 
-/* Навигационная панель */
-.navigation-bar {
+/* Style for view month expenses button */
+.button-view-expenses {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+}
+
+/* Style for filter controls */
+.hbox-filter-controls {
     -fx-padding: 10px;
-    -fx-spacing: 10px;
-    -fx-alignment: center;
 }
 
-/* Метка месяца */
-.month-label {
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-font-family: "Segoe UI", Arial, sans-serif; /* Шрифт текста кнопок */
+/* Style for filter and sort box */
+.vbox-filter-sort {
+    -fx-padding: 10px;
 }
